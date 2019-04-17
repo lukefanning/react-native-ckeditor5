@@ -1,35 +1,34 @@
-# react-native-ckeditor
+# react-native-ckeditor5
 
-#### React Native CKEditor component with no native code for React Native apps built using WebView
+#### React Native CKEditor5 component wrapper
 
 ## Installation
 
 ```
-yarn add react-native-ckeditor
+yarn add react-native-ckeditor5
 ```
 
 or
 
 ```
-npm install --save react-native-ckeditor
+npm install --save react-native-ckeditor5
 ```
 
 and then
 
 ```jsx harmony
-import CKEditor from 'react-native-ckeditor';
+import CKEditor5 from 'react-native-ckeditor5';
 ```
 
 ## Usage
 
-Creating a CKEditor.js editor:
+Creating a CKEditor5 editor:
 
 
 ```jsx harmony
 <CKEditor
-  content={values.description}
-  onChange={value => {
-    setFieldValue('description', value);
-  }}
+  initialData={this.state.test}
+  onChange={value => this.setState({ test: value })}
+  editorConfig={{ toolbar: ['bold', 'italic', 'underline', 'bulletedList', 'numberedList', '|', 'undo', 'redo'] }}
 />
 ```
