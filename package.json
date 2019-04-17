@@ -1,0 +1,27 @@
+{
+  "name": "react-native-ckeditor5",
+  "version": "1.0.0",
+  "description": "React Native CKEditor5 WebView wrapper",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ssg-luke/react-native-ckeditor5"
+  },
+  "keywords": [
+    "react",
+    "native",
+    "ckeditor",
+    "ckeditor5"
+  ],
+  "author": "Luke Fanning",
+  "license": "ISC",
+  "peerDependencies": {
+    "react-native-webview": ">=5"
+  },
+  "dependencies": {
+    "prop-types": "^15.7.2"
+  }
+}
