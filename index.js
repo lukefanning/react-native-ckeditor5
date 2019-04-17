@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 const ckeditor = require('./ckeditor');
 
-class CKEditor extends PureComponent {
+class CKEditor5 extends PureComponent {
   state = {};
 
   static propTypes = {
@@ -112,4 +112,4 @@ class CKEditor extends PureComponent {
   }
 }
 
-export default CKEditor;
+export default CKEditor5;
