@@ -50,7 +50,7 @@ class CKEditor5 extends PureComponent {
         ref={c => this.webview = c}
         style={style}
         scrollEnabled={false}
-        source={{html: `
+        source={{baseUrl: '', html: `
         <!DOCTYPE html>
         <html>
 
