@@ -30,5 +30,7 @@ Creating a CKEditor5 editor:
   initialData={this.state.test}
   onChange={value => this.setState({ test: value })}
   editorConfig={{ toolbar: ['bold', 'italic', 'underline', 'bulletedList', 'numberedList', '|', 'undo', 'redo'] }}
+  onFocus={() => {}}
+  onBlur={() => {}}
 />
 ```
