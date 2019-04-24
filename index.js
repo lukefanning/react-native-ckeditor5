@@ -17,6 +17,8 @@ class CKEditor5 extends PureComponent {
     maxHeight: propTypes.number,
     editorConfig: propTypes.object,
     style: propTypes.object,
+    onFocus: propTypes.func,
+    onBlur: propTypes.func,
   }
 
   onError = error => {
@@ -39,6 +41,15 @@ class CKEditor5 extends PureComponent {
 
   onMessage = event => {
     const data = event.nativeEvent.data;
+    if (data.indexOf('RNCKEditor5') === 0) {
+      const [cmdTag, cmd, value] = data.split(':');
+      switch (cmd) {
+        case 'onFocus':
+          if (value === 'true' && this.props.onFocus) this.props.onFocus();
+          if (value === 'false' && this.props.onBlur) this.props.onBlur();
+          return;
+      }
+    }
     console.log('Data from ckeditor:', data);
     this.props.onChange(data);
   };
@@ -70,8 +81,8 @@ class CKEditor5 extends PureComponent {
             <meta name="viewport" content="width=device-width,initial-scale=1">
             <style>
             .ck-editor__editable {
-              max-height: ${maxHeight || 100}px;
-          }
+                max-height: ${maxHeight || 100}px;
+            }
             </style>
         </head>
 
@@ -90,6 +101,10 @@ class CKEditor5 extends PureComponent {
                   catch (e) {
                     alert(e)
                   }
+                } );
+                editor.editing.view.document.on( 'change:isFocused', ( evt, name, value ) => {
+                    console.log( 'editable isFocused =', value );
+                    window.ReactNativeWebView.postMessage('RNCKEditor5:onFocus:' + value);
                 } );
             } )
             .catch( error => {
