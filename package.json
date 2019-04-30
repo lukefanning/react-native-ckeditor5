@@ -1,6 +1,6 @@
 {
   "name": "react-native-ckeditor5",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "React Native CKEditor5 WebView wrapper",
   "main": "index.js",
   "scripts": {

@@ -58,7 +58,11 @@ class CKEditor5 extends PureComponent {
     }
     console.log('Data from ckeditor:', data);
     this.props.onChange(data);
-  };
+  }
+
+  blur = () => {
+    this.webview.injectJavaScript(`document.querySelector( '.ck-editor__editable' ).blur()`);
+  }
 
   render() {
     const { maxHeight, editorConfig, style, initialData, renderLoading, disableTooltips, height } = this.props;
