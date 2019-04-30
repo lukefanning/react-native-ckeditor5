@@ -20,6 +20,11 @@ class CKEditor5 extends PureComponent {
     onFocus: propTypes.func,
     onBlur: propTypes.func,
     disableTooltips: propTypes.bool,
+    height: propTypes.number,
+  }
+
+  static defaultProps = {
+    height: 150,
   }
 
   onError = error => {
@@ -56,7 +61,7 @@ class CKEditor5 extends PureComponent {
   };
 
   render() {
-    const { maxHeight, editorConfig, style, initialData, renderLoading, disableTooltips } = this.props;
+    const { maxHeight, editorConfig, style, initialData, renderLoading, disableTooltips, height } = this.props;
     return (
       <WebView
         ref={c => this.webview = c}
@@ -82,7 +87,8 @@ class CKEditor5 extends PureComponent {
             <meta name="viewport" content="width=device-width,initial-scale=1">
             <style>
               .ck-editor__editable {
-                  max-height: ${maxHeight || 100}px;
+                  height: ${height}px;
+                  max-height: ${maxHeight || height}px;
               }
               ${disableTooltips ? `
               .ck.ck-button .ck.ck-tooltip {
