@@ -21,6 +21,7 @@ class CKEditor5 extends PureComponent {
     onBlur: propTypes.func,
     disableTooltips: propTypes.bool,
     height: propTypes.number,
+    androidHardwareAccelerationDisabled: propTypes.bool,
   }
 
   static defaultProps = {
@@ -65,7 +66,10 @@ class CKEditor5 extends PureComponent {
   }
 
   render() {
-    const { maxHeight, editorConfig, style, initialData, renderLoading, disableTooltips, height } = this.props;
+    const {
+      maxHeight, editorConfig, style, initialData, renderLoading, disableTooltips, height,
+      androidHardwareAccelerationDisabled,
+    } = this.props;
     return (
       <WebView
         ref={c => this.webview = c}
@@ -138,6 +142,7 @@ class CKEditor5 extends PureComponent {
         injectedJavaScript={initialData ? `window.editor.setData('${initialData}'); true;` : null}
         onMessage={this.onMessage}
         renderLoading={renderLoading}
+        androidHardwareAccelerationDisabled={androidHardwareAccelerationDisabled}
       />
     );
   }
