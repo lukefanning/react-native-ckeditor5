@@ -22,6 +22,7 @@ class CKEditor5 extends PureComponent {
     disableTooltips: propTypes.bool,
     height: propTypes.number,
     androidHardwareAccelerationDisabled: propTypes.bool,
+    fontFamily: propTypes.string,
   }
 
   static defaultProps = {
@@ -68,7 +69,7 @@ class CKEditor5 extends PureComponent {
   render() {
     const {
       maxHeight, editorConfig, style, initialData, renderLoading, disableTooltips, height,
-      androidHardwareAccelerationDisabled,
+      androidHardwareAccelerationDisabled, fontFamily,
     } = this.props;
     return (
       <WebView
@@ -101,6 +102,9 @@ class CKEditor5 extends PureComponent {
               ${disableTooltips ? `
               .ck.ck-button .ck.ck-tooltip {
                   display: none;
+              }
+              body {
+                font-family: ${fontFamily || 'Arial, Helvetica, sans-serif'};
               }
               ` : ''}
             </style>

@@ -32,5 +32,6 @@ Creating a CKEditor5 editor:
   editorConfig={{ toolbar: ['bold', 'italic', 'underline', 'bulletedList', 'numberedList', '|', 'undo', 'redo'] }}
   onFocus={() => {}}
   onBlur={() => {}}
+  fontFamily="Arial, Helvetica, sans-serif"
 />
 ```
