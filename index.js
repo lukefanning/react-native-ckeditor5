@@ -143,7 +143,7 @@ class CKEditor5 extends PureComponent {
         onError={this.onError}
         renderError={this.renderError}
         javaScriptEnabled
-        injectedJavaScript={initialData ? `window.editor.setData('${initialData.replace('\'', '\\\'')}'); true;` : null}
+        injectedJavaScript={initialData ? `window.editor.setData(\`${initialData.replace('\'', '\\\'')}\`); true;` : null}
         onMessage={this.onMessage}
         renderLoading={renderLoading}
         androidHardwareAccelerationDisabled={androidHardwareAccelerationDisabled}
