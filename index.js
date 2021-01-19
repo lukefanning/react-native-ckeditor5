@@ -12,17 +12,20 @@ class CKEditor5 extends PureComponent {
     onError: PropTypes.func,
     renderError: PropTypes.func,
     renderLoading: PropTypes.func,
-    onChange: propTypes.func,
-    initialData: propTypes.string,
-    maxHeight: propTypes.number,
-    editorConfig: propTypes.object,
-    style: propTypes.object,
-    onFocus: propTypes.func,
-    onBlur: propTypes.func,
-    disableTooltips: propTypes.bool,
-    height: propTypes.number,
-    androidHardwareAccelerationDisabled: propTypes.bool,
-    fontFamily: propTypes.string,
+    onChange: PropTypes.func,
+    initialData: PropTypes.string,
+    maxHeight: PropTypes.number,
+    editorConfig: PropTypes.object,
+    style: PropTypes.object,
+    onFocus: PropTypes.func,
+    onBlur: PropTypes.func,
+    disableTooltips: PropTypes.bool,
+    height: PropTypes.number,
+    androidHardwareAccelerationDisabled: PropTypes.bool,
+    fontFamily: PropTypes.string,
+    colors: PropTypes.object,
+    toolbarBorderSize: PropTypes.string,
+    editorFocusBorderSize: PropTypes.string
   }
 
   static defaultProps = {
@@ -69,7 +72,7 @@ class CKEditor5 extends PureComponent {
   render() {
     const {
       maxHeight, editorConfig, style, initialData, renderLoading, disableTooltips, height,
-      androidHardwareAccelerationDisabled, fontFamily,
+      androidHardwareAccelerationDisabled, fontFamily, colors, toolbarBorderSize, editorFocusBorderSize
     } = this.props;
     return (
       <WebView
@@ -99,12 +102,25 @@ class CKEditor5 extends PureComponent {
                   height: ${height}px;
                   max-height: ${maxHeight || height}px;
               }
+              .ck.ck-editor__main>.ck-editor__editable {
+                background: ${colors.backgroundColor};
+                color: ${colors.white};
+                font-family: ${fontFamily || '-apple-system, "Helvetica Neue", "Lucida Grande"'};
+                border-style: none;
+              }
+              .ck .ck-toolbar {
+                background: ${colors.offContentBackground};
+                border: ${toolbarBorderSize};
+              }
+              .ck.ck-reset_all, .ck.ck-reset_all * {
+                color: ${colors.white}
+              }
+              .ck.ck-editor__editable:not(.ck-editor__nested-editable).ck-focused {
+                border: ${editorFocusBorderSize};
+              }
               ${disableTooltips ? `
               .ck.ck-button .ck.ck-tooltip {
                   display: none;
-              }
-              body {
-                font-family: ${fontFamily || 'Arial, Helvetica, sans-serif'};
               }
               ` : ''}
             </style>
