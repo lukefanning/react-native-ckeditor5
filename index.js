@@ -118,6 +118,12 @@ class CKEditor5 extends PureComponent {
               .ck.ck-editor__editable:not(.ck-editor__nested-editable).ck-focused {
                 border: ${editorFocusBorderSize};
               }
+              .ck-toolbar .ck-on .ck.ck-icon, .ck-toolbar .ck-on .ck.ck-icon * { 
+                color: ${colors.bg5} !important; 
+              }
+              .ck-toolbar .ck-button:hover .ck.ck-icon, .ck-toolbar .ck-button:hover .ck.ck-icon * {
+                color: ${colors.bg5}; 
+              }
               ${disableTooltips ? `
               .ck.ck-button .ck.ck-tooltip {
                   display: none;

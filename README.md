@@ -24,6 +24,14 @@ import CKEditor5 from 'react-native-ckeditor5';
 
 Creating a CKEditor5 editor:
 
+```jsx harmony
+const colors = {
+  backgroundColor: '{your color code here}',
+  offContentBackgroundColor: '{your secondary color code here}',
+  color: '{font color code here}',
+  bg5: '{your toolbar button active and hover color}'
+}
+```
 
 ```jsx harmony
      <CKEditor5
