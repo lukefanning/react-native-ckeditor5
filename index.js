@@ -26,6 +26,7 @@ class CKEditor5 extends PureComponent {
     colors: PropTypes.object,
     toolbarBorderSize: PropTypes.string,
     editorFocusBorderSize: PropTypes.string
+    placeHolderText: PropTypes.string
   }
 
   static defaultProps = {
@@ -72,7 +73,7 @@ class CKEditor5 extends PureComponent {
   render() {
     const {
       maxHeight, editorConfig, style, initialData, renderLoading, disableTooltips, height,
-      androidHardwareAccelerationDisabled, fontFamily, colors, toolbarBorderSize, editorFocusBorderSize
+      androidHardwareAccelerationDisabled, fontFamily, colors, toolbarBorderSize, editorFocusBorderSize, placeHolderText
     } = this.props;
     return (
       <WebView
@@ -133,7 +134,7 @@ class CKEditor5 extends PureComponent {
         </head>
 
         <body>
-        <textarea name="editor1" id="editor1"></textarea>
+        <textarea name="editor1" placeholder="${placeHolderText}" id="editor1"></textarea>
         <script>
         ClassicEditor
             .create( document.querySelector( '#editor1' ), ${JSON.stringify(editorConfig || {})} )
