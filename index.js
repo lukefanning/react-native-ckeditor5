@@ -25,7 +25,7 @@ class CKEditor5 extends PureComponent {
     fontFamily: PropTypes.string,
     colors: PropTypes.object,
     toolbarBorderSize: PropTypes.string,
-    editorFocusBorderSize: PropTypes.string
+    editorFocusBorderSize: PropTypes.string,
     placeHolderText: PropTypes.string
   }
 

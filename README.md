@@ -46,5 +46,6 @@ const colors = {
         colors={colors}
         toolbarBorderSize="0px"
         editorFocusBorderSize="0px"
+        placeHolderText="Enter text here..."
       />
 ```
