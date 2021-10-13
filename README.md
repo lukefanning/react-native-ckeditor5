@@ -24,14 +24,28 @@ import CKEditor5 from 'react-native-ckeditor5';
 
 Creating a CKEditor5 editor:
 
+```jsx harmony
+const colors = {
+  backgroundColor: '{your color code here}',
+  offContentBackgroundColor: '{your secondary color code here}',
+  color: '{font color code here}',
+  bg5: '{your toolbar button active and hover color}'
+}
+```
 
 ```jsx harmony
-<CKEditor
-  initialData={this.state.test}
-  onChange={value => this.setState({ test: value })}
-  editorConfig={{ toolbar: ['bold', 'italic', 'underline', 'bulletedList', 'numberedList', '|', 'undo', 'redo'] }}
-  onFocus={() => {}}
-  onBlur={() => {}}
-  fontFamily="Arial, Helvetica, sans-serif"
-/>
+     <CKEditor5
+        initialData={inputValue}
+        onChange={value => onTextChange(value)}
+        editorConfig={{ toolbar: ['bold', 'italic', 'underline', 'bulletedList', 'numberedList', '|', 'undo', 'redo'] }}
+        onFocus={() => {}}
+        onBlur={() => {}}
+        fontFamily={device.isIOS ? "-apple-system, 'Helvetica Neue', 'Lucida Grande'" : "'Roboto', sans-serif"}
+        style={{ backgroundColor: 'transparent' }}
+        height={utils.scaleByVertical(685)}
+        colors={colors}
+        toolbarBorderSize="0px"
+        editorFocusBorderSize="0px"
+        placeHolderText="Enter text here..."
+      />
 ```
